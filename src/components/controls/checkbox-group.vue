@@ -54,7 +54,7 @@ const handleToggle = async (value: string | number) => {
             <div
                 v-if="item.tooltip"
                 v-html="item.tooltip"
-                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 translate-y-1 group-hover:translate-y-0 bg-zinc-900/90 dark:bg-miku/90 backdrop-blur-md text-white text-xs rounded-lg whitespace-nowrap z-50 pointer-events-none shadow-xl items-center"
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 translate-y-1 group-hover:translate-y-0 bg-zinc-900/90 dark:bg-slate-800/90 backdrop-blur-md text-white text-xs rounded-lg whitespace-nowrap z-50 pointer-events-none shadow-xl flex items-center border border-white/10"
             ></div>
 
             <button
@@ -63,8 +63,8 @@ const handleToggle = async (value: string | number) => {
                 class="flex items-center justify-center p-2 rounded-lg border-2 transition-all duration-200 cursor-pointer select-none active:scale-95 min-w-25 overflow-hidden"
                 :class="
                     isChecked(item.value)
-                        ? 'bg-miku border-miku text-white shadow-[0_4px_12px_rgba(57,197,187,0.3)]'
-                        : 'bg-white/40 dark:bg-zinc-900/40 border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:border-miku/50'
+                        ? 'bg-miku border-miku text-white shadow-[0_4px_12px_rgba(57,197,187,0.3)] dark:shadow-[0_4px_12px_rgba(57,197,187,0.15)]'
+                        : 'bg-white/40 dark:bg-slate-800/40 border-zinc-200 dark:border-slate-700 text-zinc-600 dark:text-slate-300 hover:border-miku/50 dark:hover:border-miku/60'
                 "
             >
                 <span

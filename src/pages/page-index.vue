@@ -8,12 +8,12 @@ import PartH2 from "@/components/parts/part-h2.vue";
 <template>
     <ContainerPageIndex>
         <!-- Logo -->
-        <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-col items-center gap-6 mt-8">
             <h1 class="hidden">Moesekai tools</h1>
             <div class="flex flex-col items-center justify-center gap-2">
-                <div class="flex flex-row">
+                <div class="flex flex-row items-end pb-2">
                     <div
-                        class="h-16 w-64 sm:h-20 sm:w-80 lg:h-24 lg:w-96 bg-linear-to-r from-miku to-miku-dark transition-all hover:brightness-110"
+                        class="h-16 w-56 sm:h-20 sm:w-80 lg:h-24 lg:w-96 bg-linear-to-r from-miku to-miku-dark transition-all hover:brightness-110 drop-shadow-md dark:drop-shadow-[0_0_15px_rgba(51,204,187,0.3)]"
                         style="
                             mask-image: url(https://assets.exmeaning.com/SnowyBot/logo.svg);
                             mask-size: contain;
@@ -27,26 +27,28 @@ import PartH2 from "@/components/parts/part-h2.vue";
                         role="img"
                         aria-label="Moesekai"
                     ></div>
-                    <div class="text-2xl text-miku">tools</div>
-                    <!-- TODO: 本站单独的 icon -->
+                    <span class="px-3 py-1.5 ml-3 mb-2 sm:mb-4 rounded-xl bg-miku/10 dark:bg-miku/20 text-miku text-sm sm:text-base font-bold tracking-widest uppercase border-2 border-miku/20 shadow-sm leading-none">
+                        tools
+                    </span>
                 </div>
             </div>
             <EffectLink
-                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm sm:text-base font-bold transition-all hover:bg-blue-100 hover:scale-105 duration-300 shadow-sm"
+                class="group inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-200/50 dark:border-blue-700/50 text-blue-600 dark:text-blue-300 text-sm sm:text-base font-bold transition-all hover:bg-blue-100 dark:hover:bg-blue-800/50 hover:scale-105 duration-300 shadow-sm hover:shadow-md dark:hover:shadow-blue-900/30 backdrop-blur-sm"
                 href="https://pjsk.moe/"
-                ><span class="flex h-2 w-2 rounded-full bg-blue-400"></span
-                ><span
-                    >去往主站
-                    <span class="underline decoration-1 underline-offset-2 decoration-blue-300"
+                >
+                <span class="flex h-2.5 w-2.5 rounded-full bg-blue-400 dark:bg-blue-500 animate-pulse-fast shadow-[0_0_8px_rgba(96,165,250,0.6)]"></span>
+                <span>
+                    去往主站
+                    <span class="ml-1 font-medium underline decoration-1 underline-offset-4 decoration-blue-300/70 dark:decoration-blue-500/50 group-hover:decoration-blue-500 dark:group-hover:decoration-blue-400 transition-colors"
                         >pjsk.moe</span
-                    ></span
-                ></EffectLink
-            >
+                    >
+                </span>
+            </EffectLink>
         </div>
 
-        <div class="w-full max-w-5xl">
+        <div class="w-full max-w-5xl mt-12">
             <PartH2>全部工具</PartH2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
                 <EffectLink href="/tools/1an-collection">
                     <CardShortcut>
                         <template #label>1 周年集章</template>

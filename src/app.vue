@@ -7,7 +7,7 @@ aJump.update();
 
 <template>
     <navbar />
-    <div class="w-full max-w-7xl mx-auto flex">
+    <div class="w-full max-w-7xl mx-auto flex flex-col min-w-0 overflow-x-hidden">
         <component v-bind:is="aJump.component.value"></component>
     </div>
 </template>
