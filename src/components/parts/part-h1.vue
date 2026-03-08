@@ -12,7 +12,9 @@
             </div>
         </template>
         <template v-if="$slots.title">
-            <h1 class="text-2xl sm:text-4xl font-black text-slate-800 dark:text-slate-100 tracking-tight drop-shadow-sm">
+            <h1
+                class="text-2xl sm:text-4xl font-black text-slate-800 dark:text-slate-100 tracking-tight drop-shadow-sm"
+            >
                 <slot name="title" />
             </h1>
         </template>

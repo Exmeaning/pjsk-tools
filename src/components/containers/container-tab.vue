@@ -45,7 +45,10 @@ const selectTab = (key: string) => {
                             : 'text-slate-500 dark:text-slate-400 hover:text-miku-dark dark:hover:text-miku transition-colors'
                     "
                 >
-                    <span class="flex items-center flex-row w-max drop-shadow-sm" v-html="tab.label"></span>
+                    <span
+                        class="flex items-center flex-row w-max drop-shadow-sm"
+                        v-html="tab.label"
+                    ></span>
                 </button>
             </div>
         </nav>

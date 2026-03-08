@@ -28,7 +28,9 @@ import { SunIcon, MoonIcon } from "@heroicons/vue/24/outline";
                             -webkit-mask-repeat: no-repeat;
                         "
                     ></div>
-                    <span class="px-2 py-1 rounded bg-miku/10 text-miku text-[10px] font-bold tracking-widest uppercase border border-miku/20 shadow-sm leading-none opacity-80 group-hover:opacity-100 transition-opacity">
+                    <span
+                        class="px-2 py-1 rounded bg-miku/10 text-miku text-[10px] font-bold tracking-widest uppercase border border-miku/20 shadow-sm leading-none opacity-80 group-hover:opacity-100 transition-opacity"
+                    >
                         tools
                     </span>
                 </EffectLink>

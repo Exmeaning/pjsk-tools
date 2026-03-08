@@ -27,7 +27,9 @@ import PartH2 from "@/components/parts/part-h2.vue";
                         role="img"
                         aria-label="Moesekai"
                     ></div>
-                    <span class="px-3 py-1.5 ml-3 mb-2 sm:mb-4 rounded-xl bg-miku/10 dark:bg-miku/20 text-miku text-sm sm:text-base font-bold tracking-widest uppercase border-2 border-miku/20 shadow-sm leading-none">
+                    <span
+                        class="px-3 py-1.5 ml-3 mb-2 sm:mb-4 rounded-xl bg-miku/10 dark:bg-miku/20 text-miku text-sm sm:text-base font-bold tracking-widest uppercase border-2 border-miku/20 shadow-sm leading-none"
+                    >
                         tools
                     </span>
                 </div>
@@ -35,11 +37,14 @@ import PartH2 from "@/components/parts/part-h2.vue";
             <EffectLink
                 class="group inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-200/50 dark:border-blue-700/50 text-blue-600 dark:text-blue-300 text-sm sm:text-base font-bold transition-all hover:bg-blue-100 dark:hover:bg-blue-800/50 hover:scale-105 duration-300 shadow-sm hover:shadow-md dark:hover:shadow-blue-900/30 backdrop-blur-sm"
                 href="https://pjsk.moe/"
-                >
-                <span class="flex h-2.5 w-2.5 rounded-full bg-blue-400 dark:bg-blue-500 animate-pulse-fast shadow-[0_0_8px_rgba(96,165,250,0.6)]"></span>
+            >
+                <span
+                    class="flex h-2.5 w-2.5 rounded-full bg-blue-400 dark:bg-blue-500 animate-pulse-fast shadow-[0_0_8px_rgba(96,165,250,0.6)]"
+                ></span>
                 <span>
                     去往主站
-                    <span class="ml-1 font-medium underline decoration-1 underline-offset-4 decoration-blue-300/70 dark:decoration-blue-500/50 group-hover:decoration-blue-500 dark:group-hover:decoration-blue-400 transition-colors"
+                    <span
+                        class="ml-1 font-medium underline decoration-1 underline-offset-4 decoration-blue-300/70 dark:decoration-blue-500/50 group-hover:decoration-blue-500 dark:group-hover:decoration-blue-400 transition-colors"
                         >pjsk.moe</span
                     >
                 </span>

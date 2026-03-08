@@ -479,39 +479,62 @@ function exportAndCopy() {
                     :options="signInRewardList"
                     @change="handleSignInRewardChange"
                 ></CheckboxGroup>
-                <div class="my-6 p-4 sm:px-6 bg-white/50 dark:bg-slate-800/50 rounded-xl border border-white/40 dark:border-slate-700/50 flex flex-wrap items-center gap-y-2 text-slate-700 dark:text-slate-200 font-medium font-bold shadow-sm backdrop-blur-sm">
+                <div
+                    class="my-6 p-4 sm:px-6 bg-white/50 dark:bg-slate-800/50 rounded-xl border border-white/40 dark:border-slate-700/50 flex flex-wrap items-center gap-y-2 text-slate-700 dark:text-slate-200 font-medium shadow-sm backdrop-blur-sm"
+                >
                     <span class="mr-2">共计</span>
-                    <span class="text-miku text-lg mx-1 sm:mx-2">{{ signInRewards.p }}</span> <i class="icon-material170 mr-3 sm:mr-4 drop-shadow-sm"></i>
-                    <span class="text-blue-400 dark:text-blue-300 text-lg mx-1 sm:mx-2">{{ signInRewards.jewel }}</span> <i class="icon-jewel mr-3 sm:mr-4 drop-shadow-sm"></i>
-                    <span class="text-yellow-400 dark:text-yellow-300 text-lg mx-1 sm:mx-2">{{ signInRewards.gacha }}</span>
+                    <span class="text-miku text-lg mx-1 sm:mx-2">{{ signInRewards.p }}</span>
+                    <i class="icon-material170 mr-3 sm:mr-4 drop-shadow-sm"></i>
+                    <span class="text-blue-400 dark:text-blue-300 text-lg mx-1 sm:mx-2">{{
+                        signInRewards.jewel
+                    }}</span>
+                    <i class="icon-jewel mr-3 sm:mr-4 drop-shadow-sm"></i>
+                    <span class="text-yellow-400 dark:text-yellow-300 text-lg mx-1 sm:mx-2">{{
+                        signInRewards.gacha
+                    }}</span>
                     <i class="icon-gacha-ticket drop-shadow-sm"></i>
                 </div>
                 <div class="px-2 mt-2">
                     <PartH2 level="3"> 卡池获取 </PartH2>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center bg-white/40 dark:bg-slate-800/40 p-3 rounded-2xl border border-white/50 dark:border-slate-700/50 shadow-sm mb-4">
+                <div
+                    class="flex flex-col sm:flex-row items-center bg-white/40 dark:bg-slate-800/40 p-3 rounded-2xl border border-white/50 dark:border-slate-700/50 shadow-sm mb-4"
+                >
                     <i class="icon-gacha-banner704 w-60 h-28 rounded-xl shadow-md" />
                     <div class="m-3 sm:m-5 flex flex-col items-center sm:items-start gap-3">
-                        <div class="flex items-center text-center sm:text-left text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium">
+                        <div
+                            class="flex items-center text-center sm:text-left text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium"
+                        >
                             每满 50 抽 → 100<i class="icon-material170 ml-1" />，无上限
                         </div>
-                        <div class="flex flex-row items-center w-max text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 pl-2 pr-4 py-1 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner">
+                        <div
+                            class="flex flex-row items-center w-max text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 pl-2 pr-4 py-1 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner"
+                        >
                             <div class="h-8 min-w-24 mr-3">
                                 <InputNumber v-model="gachaFes" :min="0" :step="50" />
                             </div>
-                            <span class="text-slate-400 dark:text-slate-500 mr-2">→</span> <span class="text-miku text-lg mr-1">{{ gachaFes * 2 }}</span>
+                            <span class="text-slate-400 dark:text-slate-500 mr-2">→</span>
+                            <span class="text-miku text-lg mr-1">{{ gachaFes * 2 }}</span>
                             <i class="icon-material170 drop-shadow-sm" />
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center bg-white/40 dark:bg-slate-800/40 p-3 rounded-2xl border border-white/50 dark:border-slate-700/50 shadow-sm mb-4">
+                <div
+                    class="flex flex-col sm:flex-row items-center bg-white/40 dark:bg-slate-800/40 p-3 rounded-2xl border border-white/50 dark:border-slate-700/50 shadow-sm mb-4"
+                >
                     <i class="icon-gacha-banner710 w-60 h-28 rounded-xl shadow-md" />
                     <div class="m-3 sm:m-5 flex flex-col items-center sm:items-start gap-3">
-                        <div class="flex items-center text-center sm:text-left text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium">
-                            3000 付费<i class="icon-jewel mx-1" /> → 200<i class="icon-material170 mx-1" /> +
-                            50<i class="icon-material171 ml-1" />
+                        <div
+                            class="flex items-center text-center sm:text-left text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium"
+                        >
+                            3000 付费<i class="icon-jewel mx-1" /> → 200<i
+                                class="icon-material170 mx-1"
+                            />
+                            + 50<i class="icon-material171 ml-1" />
                         </div>
-                        <div class="flex flex-row items-center gap-3 w-max font-bold text-slate-700 dark:text-slate-200 bg-white/60 dark:bg-slate-900/60 px-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner">
+                        <div
+                            class="flex flex-row items-center gap-3 w-max font-bold text-slate-700 dark:text-slate-200 bg-white/60 dark:bg-slate-900/60 px-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner"
+                        >
                             <span class="mr-2">我要抽！</span>
                             <div class="h-6 w-12 my-auto">
                                 <CheckboxSwitch v-model="gachaGift" />
@@ -519,13 +542,21 @@ function exportAndCopy() {
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center bg-white/40 dark:bg-slate-800/40 p-3 rounded-2xl border border-white/50 dark:border-slate-700/50 shadow-sm mb-6">
+                <div
+                    class="flex flex-col sm:flex-row items-center bg-white/40 dark:bg-slate-800/40 p-3 rounded-2xl border border-white/50 dark:border-slate-700/50 shadow-sm mb-6"
+                >
                     <i class="icon-gacha-banner705 w-60 h-28 rounded-xl shadow-md" />
                     <div class="m-3 sm:m-5 flex flex-col items-center sm:items-start gap-3">
-                        <div class="flex items-center text-center sm:text-left text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium">
-                            3000 付费<i class="icon-jewel mx-1" /> → 200<i class="icon-material170 ml-1" />
+                        <div
+                            class="flex items-center text-center sm:text-left text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium"
+                        >
+                            3000 付费<i class="icon-jewel mx-1" /> → 200<i
+                                class="icon-material170 ml-1"
+                            />
                         </div>
-                        <div class="flex flex-row items-center gap-3 w-max font-bold text-slate-700 dark:text-slate-200 bg-white/60 dark:bg-slate-900/60 px-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner">
+                        <div
+                            class="flex flex-row items-center gap-3 w-max font-bold text-slate-700 dark:text-slate-200 bg-white/60 dark:bg-slate-900/60 px-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner"
+                        >
                             <span class="mr-2">我要抽！</span>
                             <div class="h-6 w-12 my-auto">
                                 <CheckboxSwitch v-model="gachaCostume" />
@@ -537,22 +568,33 @@ function exportAndCopy() {
                     <PartH2 level="3"> 获取零碎碎片 </PartH2>
                 </div>
                 <!-- Combined Box for PT Exchange & My Sekai -->
-                <div class="bg-white/40 dark:bg-slate-800/40 p-4 sm:p-6 mb-6 rounded-2xl border border-white/50 dark:border-slate-700/50 shadow-sm flex flex-col md:flex-row gap-6 md:gap-8">
-                    
+                <div
+                    class="bg-white/40 dark:bg-slate-800/40 p-4 sm:p-6 mb-6 rounded-2xl border border-white/50 dark:border-slate-700/50 shadow-sm flex flex-col md:flex-row gap-6 md:gap-8"
+                >
                     <!-- PT Exchange (活动兑换所) -->
                     <div class="flex-1 flex flex-col">
-                        <div class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3 ml-1 flex items-center">
+                        <div
+                            class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3 ml-1 flex items-center"
+                        >
                             活动兑换所
                         </div>
-                        <div class="flex items-center text-sm text-slate-600 dark:text-slate-300 font-medium bg-white/50 dark:bg-slate-900/40 p-3 rounded-xl border border-white/40 dark:border-slate-700/40 shadow-inner mb-3">
-                            5000 <i class="icon-eventbadge-shiho3 mx-1" /> → 15<i class="icon-material170 mx-1" />，限15次
+                        <div
+                            class="flex items-center text-sm text-slate-600 dark:text-slate-300 font-medium bg-white/50 dark:bg-slate-900/40 p-3 rounded-xl border border-white/40 dark:border-slate-700/40 shadow-inner mb-3"
+                        >
+                            5000 <i class="icon-eventbadge-shiho3 mx-1" /> → 15<i
+                                class="icon-material170 mx-1"
+                            />，限15次
                         </div>
-                        <div class="flex flex-row items-center mt-auto text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 pl-2 pr-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-sm w-max">
+                        <div
+                            class="flex flex-row items-center mt-auto text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 pl-2 pr-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-sm w-max"
+                        >
                             <div class="h-8 min-w-24 mr-3">
                                 <InputNumber v-model="ptExchange.p" :min="0" :max="15" />
                             </div>
                             <span class="text-slate-400 dark:text-slate-500 mx-1">*</span> 5k
-                            <i class="icon-eventbadge-shiho3 ml-0.5 mr-2" /> <span class="text-slate-400 dark:text-slate-500 mr-2">→</span> <span class="text-miku text-lg mr-1">{{ ptExchange.p * 15 }}</span>
+                            <i class="icon-eventbadge-shiho3 ml-0.5 mr-2" />
+                            <span class="text-slate-400 dark:text-slate-500 mr-2">→</span>
+                            <span class="text-miku text-lg mr-1">{{ ptExchange.p * 15 }}</span>
                             <i class="icon-material170 drop-shadow-sm" />
                         </div>
                     </div>
@@ -562,13 +604,20 @@ function exportAndCopy() {
 
                     <!-- My Sekai (烤森挖矿) -->
                     <div class="flex-1 flex flex-col">
-                        <div class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3 ml-1 flex items-center">
+                        <div
+                            class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3 ml-1 flex items-center"
+                        >
                             烤森挖矿
                         </div>
-                        <div class="flex items-center text-sm text-slate-600 dark:text-slate-300 font-medium bg-white/50 dark:bg-slate-900/40 p-3 rounded-xl border border-white/40 dark:border-slate-700/40 shadow-inner mb-3">
-                            挖矿（所有种类） 每个矿石有概率获得 0～1个 <i class="icon-material170 shrink-0 ml-1" />
+                        <div
+                            class="flex items-center text-sm text-slate-600 dark:text-slate-300 font-medium bg-white/50 dark:bg-slate-900/40 p-3 rounded-xl border border-white/40 dark:border-slate-700/40 shadow-inner mb-3"
+                        >
+                            挖矿（所有种类） 每个矿石有概率获得 0～1个
+                            <i class="icon-material170 shrink-0 ml-1" />
                         </div>
-                        <div class="flex flex-row items-center mt-auto text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 pl-2 pr-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-sm w-max">
+                        <div
+                            class="flex flex-row items-center mt-auto text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 pl-2 pr-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-sm w-max"
+                        >
                             <div class="h-8 min-w-24 mr-3">
                                 <InputNumber v-model="mySekai" :min="0" />
                             </div>
@@ -577,15 +626,20 @@ function exportAndCopy() {
                             <i class="icon-material170 drop-shadow-sm" />
                         </div>
                     </div>
-
                 </div>
                 <PartH2 level="3"> 集章任务 </PartH2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-6">
-                    <div v-for="(cardGroup, cardGroupIndex) in data.stamp" :key="cardGroupIndex" class="bg-white/30 dark:bg-slate-800/30 p-4 rounded-2xl border border-white/40 dark:border-slate-700/50 shadow-sm flex flex-col h-full">
-                        <div class="ml-2 p-2 text-lg font-bold text-slate-800 dark:text-slate-100 drop-shadow-sm flex-none">
+                    <div
+                        v-for="(cardGroup, cardGroupIndex) in data.stamp"
+                        :key="cardGroupIndex"
+                        class="bg-white/30 dark:bg-slate-800/30 p-4 rounded-2xl border border-white/40 dark:border-slate-700/50 shadow-sm flex flex-col h-full"
+                    >
+                        <div
+                            class="ml-2 p-2 text-lg font-bold text-slate-800 dark:text-slate-100 drop-shadow-sm flex-none"
+                        >
                             {{ cardGroupIndex + 1 }}. {{ cardGroup.description }}
                         </div>
-                        <div class="w-full h-80 sm:h-[19rem] mt-2 px-1 sm:px-2 box-border flex-1">
+                        <div class="w-full h-80 sm:h-76 mt-2 px-1 sm:px-2 box-border flex-1">
                             <CheckboxSlide v-model="stamp[cardGroupIndex]">
                                 <div
                                     v-for="(card, cardIndex) of cardGroup.level"
@@ -593,33 +647,69 @@ function exportAndCopy() {
                                     class="flex flex-col gap-3 sm:gap-4 items-center w-full justify-center h-full"
                                 >
                                     <!-- require text styling -->
-                                    <div class="flex justify-center font-black text-xl sm:text-2xl text-slate-800 dark:text-slate-100 drop-shadow-sm tracking-wide">
+                                    <div
+                                        class="flex justify-center font-black text-xl sm:text-2xl text-slate-800 dark:text-slate-100 drop-shadow-sm tracking-wide"
+                                    >
                                         {{ card.require }}
                                     </div>
-                                    
+
                                     <!-- extra tasks list styling -->
-                                    <ul v-if="card.extra" class="flex flex-col gap-1 sm:gap-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 w-full max-w-md bg-white/50 dark:bg-slate-800/60 px-3 py-2 sm:p-4 rounded-xl border border-white/60 dark:border-slate-600/50 shadow-sm backdrop-blur-sm self-center">
-                                        <li v-for="extra of card.extra" class="flex items-start gap-2 text-left">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mt-1 sm:mt-1.5 flex-shrink-0"></div>
+                                    <ul
+                                        v-if="card.extra"
+                                        class="flex flex-col gap-1 sm:gap-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 w-full max-w-md bg-white/50 dark:bg-slate-800/60 px-3 py-2 sm:p-4 rounded-xl border border-white/60 dark:border-slate-600/50 shadow-sm backdrop-blur-sm self-center"
+                                    >
+                                        <li
+                                            v-for="extra of card.extra"
+                                            class="flex items-start gap-2 text-left"
+                                        >
+                                            <div
+                                                class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mt-1 sm:mt-1.5 shrink-0"
+                                            ></div>
                                             <span class="flex-1 leading-snug">{{ extra }}</span>
                                         </li>
                                     </ul>
 
                                     <!-- rewards styling -->
-                                    <div class="flex flex-wrap justify-center items-center gap-1 sm:gap-2 font-bold text-slate-700 dark:text-slate-200 bg-white/60 dark:bg-slate-900/60 px-3 sm:px-4 py-1.5 sm:py-2 mt-1 sm:mt-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner self-center">
+                                    <div
+                                        class="flex flex-wrap justify-center items-center gap-1 sm:gap-2 font-bold text-slate-700 dark:text-slate-200 bg-white/60 dark:bg-slate-900/60 px-3 sm:px-4 py-1.5 sm:py-2 mt-1 sm:mt-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner self-center"
+                                    >
                                         <span v-if="card.rewards.p" class="flex items-center">
-                                            <span class="text-miku mr-0.5">{{ card.rewards.p }}</span><i class="icon-material170 drop-shadow-sm gap-1" />
+                                            <span class="text-miku mr-0.5">{{
+                                                card.rewards.p
+                                            }}</span
+                                            ><i class="icon-material170 drop-shadow-sm gap-1" />
                                         </span>
-                                        <span v-if="card.rewards.jewel" class="flex items-center ml-1">
-                                            <span class="text-blue-400 mr-0.5">{{ card.rewards.jewel }}</span><i class="icon-jewel drop-shadow-sm" />
+                                        <span
+                                            v-if="card.rewards.jewel"
+                                            class="flex items-center ml-1"
+                                        >
+                                            <span class="text-blue-400 mr-0.5">{{
+                                                card.rewards.jewel
+                                            }}</span
+                                            ><i class="icon-jewel drop-shadow-sm" />
                                         </span>
-                                        <span v-if="card.rewards.gacha" class="flex items-center ml-1">
-                                            <span class="text-yellow-400 mr-0.5">{{ card.rewards.gacha }}</span><i class="icon-gacha-ticket drop-shadow-sm" />
+                                        <span
+                                            v-if="card.rewards.gacha"
+                                            class="flex items-center ml-1"
+                                        >
+                                            <span class="text-yellow-400 mr-0.5">{{
+                                                card.rewards.gacha
+                                            }}</span
+                                            ><i class="icon-gacha-ticket drop-shadow-sm" />
                                         </span>
-                                        <span v-if="card.rewards.drink" class="flex items-center ml-1">
-                                            <span class="mr-0.5">{{ card.rewards.drink }}</span><i class="icon-boost-item1 drop-shadow-sm" />
+                                        <span
+                                            v-if="card.rewards.drink"
+                                            class="flex items-center ml-1"
+                                        >
+                                            <span class="mr-0.5">{{ card.rewards.drink }}</span
+                                            ><i class="icon-boost-item1 drop-shadow-sm" />
                                         </span>
-                                        <span class="flex items-center ml-1 text-slate-600 dark:text-slate-300"> <span class="mr-0.5">70</span><i class="icon-material15 drop-shadow-sm" /> </span>
+                                        <span
+                                            class="flex items-center ml-1 text-slate-600 dark:text-slate-300"
+                                        >
+                                            <span class="mr-0.5">70</span
+                                            ><i class="icon-material15 drop-shadow-sm" />
+                                        </span>
                                     </div>
                                 </div>
                             </CheckboxSlide>
@@ -638,16 +728,23 @@ function exportAndCopy() {
                             <i class="icon-material170 drop-shadow-sm" /> 获取量小于消耗量！
                         </div>
                     </div>
-                    <div class="mt-2 mb-8 bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex flex-wrap items-center gap-y-2 w-full sm:w-max mx-auto sm:mx-0">
-                        <span class="mr-2">共获得</span> <span class="text-miku text-lg mx-1 sm:mx-2">{{ pGotCount }}</span> <i class="icon-material170 mr-3 sm:mr-4 drop-shadow-sm" /> 
-                        <span class="ml-2 sm:ml-0 mr-2">消耗</span> <span class="text-slate-500 dark:text-slate-400 text-lg mx-1 sm:mx-2">{{ pUsedCount }}</span>
+                    <div
+                        class="mt-2 mb-8 bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex flex-wrap items-center gap-y-2 w-full sm:w-max mx-auto sm:mx-0"
+                    >
+                        <span class="mr-2">共获得</span>
+                        <span class="text-miku text-lg mx-1 sm:mx-2">{{ pGotCount }}</span>
+                        <i class="icon-material170 mr-3 sm:mr-4 drop-shadow-sm" />
+                        <span class="ml-2 sm:ml-0 mr-2">消耗</span>
+                        <span class="text-slate-500 dark:text-slate-400 text-lg mx-1 sm:mx-2">{{
+                            pUsedCount
+                        }}</span>
                         <i class="icon-material170 drop-shadow-sm" />
                     </div>
                     <div class="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-5">
                         <button
                             v-for="(item, key) in data.pExchange"
                             :key="key"
-                            class="flex flex-col items-center justify-center p-3 gap-2 rounded-2xl border-2 transition-all duration-300 active:scale-95 min-w-28 overflow-hidden shadow-sm"
+                            class="flex flex-col items-center justify-center p-3 gap-2 rounded-2xl border-2 transition-all duration-300 active:scale-95 min-w-36 overflow-hidden shadow-sm"
                             :class="
                                 pExchange[key]! > 0
                                     ? 'border-miku bg-miku/10 dark:bg-miku/20 shadow-[0_4px_15px_rgba(51,204,187,0.15)]'
@@ -673,7 +770,9 @@ function exportAndCopy() {
                                     }}</span
                                 >
                             </div>
-                            <div class="flex items-center text-sm font-bold text-slate-700 dark:text-slate-200 mt-1 bg-white/50 dark:bg-slate-900/50 px-3 py-1 rounded-full border border-white/30 dark:border-slate-700/30">
+                            <div
+                                class="flex items-center text-sm font-bold text-slate-700 dark:text-slate-200 mt-1 bg-white/50 dark:bg-slate-900/50 px-3 py-1 rounded-full border border-white/30 dark:border-slate-700/30"
+                            >
                                 <i class="icon-material170 mr-1 drop-shadow-sm" />
                                 {{
                                     pExchange[key]! > 0
@@ -689,7 +788,10 @@ function exportAndCopy() {
                                     @click.stop
                                 />
                             </div>
-                            <div v-if="data.pExchange[key]!.limit !== Infinity" class="text-[0.7rem] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                            <div
+                                v-if="data.pExchange[key]!.limit !== Infinity"
+                                class="text-[0.7rem] font-bold text-slate-500 dark:text-slate-400 mt-0.5"
+                            >
                                 余 {{ data.pExchange[key]!.limit - pExchange[key]! }}
                             </div>
                         </button>
@@ -707,17 +809,23 @@ function exportAndCopy() {
                             <i class="icon-material171 drop-shadow-sm" /> 获取量小于消耗量！
                         </div>
                     </div>
-                    <div class="mt-2 mb-8 bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex flex-wrap items-center gap-y-2 w-full sm:w-max mx-auto sm:mx-0">
-                        <span class="mr-2">共获得</span> <span class="text-miku text-lg mx-1 sm:mx-2">{{ giftGotCount }}</span> <i class="icon-material171 mr-3 sm:mr-4 drop-shadow-sm" /> 
+                    <div
+                        class="mt-2 mb-8 bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex flex-wrap items-center gap-y-2 w-full sm:w-max mx-auto sm:mx-0"
+                    >
+                        <span class="mr-2">共获得</span>
+                        <span class="text-miku text-lg mx-1 sm:mx-2">{{ giftGotCount }}</span>
+                        <i class="icon-material171 mr-3 sm:mr-4 drop-shadow-sm" />
                         <span class="ml-2 sm:ml-0 mr-2">消耗</span>
-                        <span class="text-slate-500 dark:text-slate-400 text-lg mx-1 sm:mx-2">{{ giftUsedCount }}</span>
+                        <span class="text-slate-500 dark:text-slate-400 text-lg mx-1 sm:mx-2">{{
+                            giftUsedCount
+                        }}</span>
                         <i class="icon-material171 drop-shadow-sm" />
                     </div>
                     <div class="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-5">
                         <button
                             v-for="(item, key) in data.giftExchange"
                             :key="key"
-                            class="flex flex-col items-center justify-center p-3 gap-2 rounded-2xl border-2 transition-all duration-300 active:scale-95 min-w-28 overflow-hidden shadow-sm"
+                            class="flex flex-col items-center justify-center p-3 gap-2 rounded-2xl border-2 transition-all duration-300 active:scale-95 min-w-36 overflow-hidden shadow-sm"
                             :class="
                                 giftExchange[key]! > 0
                                     ? 'border-miku bg-miku/10 dark:bg-miku/20 shadow-[0_4px_15px_rgba(51,204,187,0.15)]'
@@ -743,7 +851,9 @@ function exportAndCopy() {
                                     }}</span
                                 >
                             </div>
-                            <div class="flex items-center text-sm font-bold text-slate-700 dark:text-slate-200 mt-1 bg-white/50 dark:bg-slate-900/50 px-3 py-1 rounded-full border border-white/30 dark:border-slate-700/30">
+                            <div
+                                class="flex items-center text-sm font-bold text-slate-700 dark:text-slate-200 mt-1 bg-white/50 dark:bg-slate-900/50 px-3 py-1 rounded-full border border-white/30 dark:border-slate-700/30"
+                            >
                                 <i class="icon-material171 mr-1 drop-shadow-sm" />
                                 {{
                                     giftExchange[key]! > 0
@@ -759,7 +869,10 @@ function exportAndCopy() {
                                     @click.stop
                                 />
                             </div>
-                            <div v-if="data.giftExchange[key]!.limit !== Infinity" class="text-[0.7rem] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                            <div
+                                v-if="data.giftExchange[key]!.limit !== Infinity"
+                                class="text-[0.7rem] font-bold text-slate-500 dark:text-slate-400 mt-0.5"
+                            >
                                 余 {{ data.giftExchange[key]!.limit - giftExchange[key]! }}
                             </div>
                         </button>
@@ -770,15 +883,20 @@ function exportAndCopy() {
             <template #exchangeBadge>
                 <h2 class="hidden">活动徽章兑换所</h2>
                 <TransitionGroup name="yslide">
-                    <div class="mt-2 mb-8 bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex flex-wrap items-center gap-y-2 w-full sm:w-max mx-auto sm:mx-0">
-                        <span class="mr-2">共消耗</span> <span class="text-slate-500 dark:text-slate-400 text-lg mx-1 sm:mx-2">{{ ptUsedCount }}</span>
+                    <div
+                        class="mt-2 mb-8 bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex flex-wrap items-center gap-y-2 w-full sm:w-max mx-auto sm:mx-0"
+                    >
+                        <span class="mr-2">共消耗</span>
+                        <span class="text-slate-500 dark:text-slate-400 text-lg mx-1 sm:mx-2">{{
+                            ptUsedCount
+                        }}</span>
                         <i class="icon-eventbadge-shiho3 drop-shadow-sm" />
                     </div>
                     <div class="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-5">
                         <button
                             v-for="(item, key) in data.ptExchange"
                             :key="key"
-                            class="flex flex-col items-center justify-center p-3 gap-2 rounded-2xl border-2 transition-all duration-300 active:scale-95 min-w-28 overflow-hidden shadow-sm"
+                            class="flex flex-col items-center justify-center p-3 gap-2 rounded-2xl border-2 transition-all duration-300 active:scale-95 min-w-36 overflow-hidden shadow-sm"
                             :class="
                                 ptExchange[key]! > 0
                                     ? 'border-miku bg-miku/10 dark:bg-miku/20 shadow-[0_4px_15px_rgba(51,204,187,0.15)]'
@@ -804,7 +922,9 @@ function exportAndCopy() {
                                     }}</span
                                 >
                             </div>
-                            <div class="flex items-center text-sm font-bold text-slate-700 dark:text-slate-200 mt-1 bg-white/50 dark:bg-slate-900/50 px-3 py-1 rounded-full border border-white/30 dark:border-slate-700/30">
+                            <div
+                                class="flex items-center text-sm font-bold text-slate-700 dark:text-slate-200 mt-1 bg-white/50 dark:bg-slate-900/50 px-3 py-1 rounded-full border border-white/30 dark:border-slate-700/30"
+                            >
                                 <i class="icon-eventbadge-shiho3 mr-1 drop-shadow-sm" />
                                 {{
                                     ptExchange[key]! > 0
@@ -820,7 +940,10 @@ function exportAndCopy() {
                                     @click.stop
                                 />
                             </div>
-                            <div v-if="data.ptExchange[key]!.limit !== Infinity" class="text-[0.7rem] font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                            <div
+                                v-if="data.ptExchange[key]!.limit !== Infinity"
+                                class="text-[0.7rem] font-bold text-slate-500 dark:text-slate-400 mt-0.5"
+                            >
                                 余 {{ data.ptExchange[key]!.limit - ptExchange[key]! }}
                             </div>
                         </button>
@@ -832,36 +955,75 @@ function exportAndCopy() {
                 <h2 class="hidden">资源统计</h2>
                 <PartH2 level="3">兑换物</PartH2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                    <div class="bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex items-center justify-between">
+                    <div
+                        class="bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex items-center justify-between"
+                    >
                         <div class="flex items-center">
-                            共获得 <span class="text-miku text-lg font-bold ml-2 mr-1">{{ pGotCount }}</span> <i class="icon-material170 mr-4 drop-shadow-sm" />
+                            共获得
+                            <span class="text-miku text-lg font-bold ml-2 mr-1">{{
+                                pGotCount
+                            }}</span>
+                            <i class="icon-material170 mr-4 drop-shadow-sm" />
                         </div>
-                        <div class="flex items-center border-l dark:border-slate-600 pl-4 border-slate-300">
-                            消耗 <span class="text-slate-500 dark:text-slate-400 text-lg font-bold ml-2 mr-1">{{ pUsedCount }}</span>
+                        <div
+                            class="flex items-center border-l dark:border-slate-600 pl-4 border-slate-300"
+                        >
+                            消耗
+                            <span
+                                class="text-slate-500 dark:text-slate-400 text-lg font-bold ml-2 mr-1"
+                                >{{ pUsedCount }}</span
+                            >
                             <i class="icon-material170 drop-shadow-sm" />
                         </div>
                     </div>
-                    <div class="bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex items-center justify-between">
+                    <div
+                        class="bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex items-center justify-between"
+                    >
                         <div class="flex items-center">
-                            共获得 <span class="text-miku text-lg font-bold ml-2 mr-1">{{ giftGotCount }}</span> <i class="icon-material171 mr-4 drop-shadow-sm" />
+                            共获得
+                            <span class="text-miku text-lg font-bold ml-2 mr-1">{{
+                                giftGotCount
+                            }}</span>
+                            <i class="icon-material171 mr-4 drop-shadow-sm" />
                         </div>
-                        <div class="flex items-center border-l dark:border-slate-600 pl-4 border-slate-300">
-                            消耗 <span class="text-slate-500 dark:text-slate-400 text-lg font-bold ml-2 mr-1">{{ giftUsedCount }}</span>
+                        <div
+                            class="flex items-center border-l dark:border-slate-600 pl-4 border-slate-300"
+                        >
+                            消耗
+                            <span
+                                class="text-slate-500 dark:text-slate-400 text-lg font-bold ml-2 mr-1"
+                                >{{ giftUsedCount }}</span
+                            >
                             <i class="icon-material171 drop-shadow-sm" />
                         </div>
                     </div>
-                    <div class="bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex items-center justify-between col-span-1 md:col-span-2 lg:col-span-1">
-                         <div class="flex items-center">
-                            共消耗 <span class="text-slate-500 dark:text-slate-400 text-lg font-bold ml-2 mr-1">{{ ptUsedCount }}</span>
+                    <div
+                        class="bg-white/40 dark:bg-slate-800/40 p-4 rounded-xl border border-white/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-medium shadow-sm flex items-center justify-between col-span-1 md:col-span-2 lg:col-span-1"
+                    >
+                        <div class="flex items-center">
+                            共消耗
+                            <span
+                                class="text-slate-500 dark:text-slate-400 text-lg font-bold ml-2 mr-1"
+                                >{{ ptUsedCount }}</span
+                            >
                             <i class="icon-eventbadge-shiho3 mr-4 drop-shadow-sm" />
                         </div>
-                        <div class="flex items-center border-l dark:border-slate-600 pl-4 border-slate-300">
-                            消耗 <span class="text-blue-400 text-lg font-bold ml-2 mr-1 text-shadow-sm">{{ paidJewelUsedCount }}</span> <span class="text-sm dark:text-slate-400 text-slate-500 mr-1">付费</span>
+                        <div
+                            class="flex items-center border-l dark:border-slate-600 pl-4 border-slate-300"
+                        >
+                            消耗
+                            <span
+                                class="text-blue-400 text-lg font-bold ml-2 mr-1 text-shadow-sm"
+                                >{{ paidJewelUsedCount }}</span
+                            >
+                            <span class="text-sm dark:text-slate-400 text-slate-500 mr-1"
+                                >付费</span
+                            >
                             <i class="icon-jewel drop-shadow-sm" />
                         </div>
                     </div>
                 </div>
-                
+
                 <PartH2 level="3">获得的资源</PartH2>
                 <div class="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-5 pb-8">
                     <div
@@ -890,22 +1052,40 @@ function exportAndCopy() {
 
             <template #importExport>
                 <h2 class="hidden">导入导出</h2>
-                <div class="flex flex-nowrap items-center my-4 text-slate-700 dark:text-slate-200 font-medium">
+                <div
+                    class="flex flex-nowrap items-center my-4 text-slate-700 dark:text-slate-200 font-medium"
+                >
                     清空选择：
-                    <div class="w-20"><ButtonNormal type="secondary" @click="clearUI">清空</ButtonNormal></div>
+                    <div class="w-20">
+                        <ButtonNormal type="secondary" @click="clearUI">清空</ButtonNormal>
+                    </div>
                 </div>
-                <div class="flex flex-nowrap items-center my-4 text-slate-700 dark:text-slate-200 font-medium border-t border-slate-200 dark:border-slate-700/50 pt-4">
+                <div
+                    class="flex flex-nowrap items-center my-4 text-slate-700 dark:text-slate-200 font-medium border-t border-slate-200 dark:border-slate-700/50 pt-4"
+                >
                     导出到剪切板：
                     <div class="w-20"><ButtonNormal @click="exportAndCopy">导出</ButtonNormal></div>
                 </div>
 
-                <div class="flex flex-nowrap items-center my-4 text-slate-700 dark:text-slate-200 font-medium">
+                <div
+                    class="flex flex-nowrap items-center my-4 text-slate-700 dark:text-slate-200 font-medium"
+                >
                     导入：
                     <div class="w-20 mr-3">
                         <ButtonNormal @click="importFromText">导入</ButtonNormal>
                     </div>
-                    <span v-if="importStat == true" class="text-miku font-bold bg-miku/10 px-3 py-1 rounded-full border border-miku/20"> 导入成功！ </span>
-                    <span v-else-if="importStat == false" class="text-red-500 dark:text-red-400 font-bold bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full border border-red-200 dark:border-red-800/50"> 导入失败！ </span>
+                    <span
+                        v-if="importStat == true"
+                        class="text-miku font-bold bg-miku/10 px-3 py-1 rounded-full border border-miku/20"
+                    >
+                        导入成功！
+                    </span>
+                    <span
+                        v-else-if="importStat == false"
+                        class="text-red-500 dark:text-red-400 font-bold bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full border border-red-200 dark:border-red-800/50"
+                    >
+                        导入失败！
+                    </span>
                 </div>
                 <div class="h-40">
                     <InputTextarea v-model="importText" placeholder="在此粘贴导出的数据..." />
@@ -916,8 +1096,12 @@ function exportAndCopy() {
     <div
         class="fixed right-6 bottom-6 size-20 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md flex items-center justify-center text-slate-800 dark:text-slate-100 text-2xl z-50 rounded-full shadow-lg border border-white/50 dark:border-slate-700/50 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-miku/30 dark:hover:shadow-miku/20 active:scale-95 group"
     >
-        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-miku/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <i class="icon-material-bare170 size-24 drop-shadow-sm group-hover:drop-shadow-[0_0_8px_rgba(51,204,187,0.5)] transition-all duration-300 relative z-10" />
+        <div
+            class="absolute inset-0 rounded-full bg-linear-to-tr from-miku/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+        ></div>
+        <i
+            class="icon-material-bare170 size-24 drop-shadow-sm group-hover:drop-shadow-[0_0_8px_rgba(51,204,187,0.5)] transition-all duration-300 relative z-10"
+        />
         <span
             class="absolute right-0 bottom-0 min-w-8 h-6 px-2 bg-miku text-white rounded-full text-xs font-bold flex items-center justify-center shadow-md border-2 border-white dark:border-slate-800 z-20"
             >{{ pCountFormatted }}</span
@@ -934,7 +1118,7 @@ function exportAndCopy() {
 
 .yslide-enter-from {
     opacity: 0;
-    transform: translateY(-4.25rem);
+    transform: translateY(-2.69rem);
 }
 
 .yslide-leave-to {
@@ -942,6 +1126,6 @@ function exportAndCopy() {
 }
 
 .yslide-leave-active {
-    margin-top: -4.25rem;
+    margin-top: -2.69rem;
 }
 </style>

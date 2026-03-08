@@ -1,4 +1,4 @@
-import { ref, watchEffect } from "vue";
+import { watchEffect } from "vue";
 import { useStorage } from "@vueuse/core";
 
 export const isDark = useStorage("theme-dark", false);
