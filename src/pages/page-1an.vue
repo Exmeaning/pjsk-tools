@@ -2,7 +2,7 @@
 import ContainerPageContent from "@/components/containers/container-page-content.vue";
 import PartH1 from "@/components/parts/part-h1.vue";
 import PartH2 from "@/components/parts/part-h2.vue";
-import { computed, type Reactive, reactive, type Ref, ref } from "vue";
+import { computed, onMounted, type Reactive, reactive, type Ref, ref, watch } from "vue";
 import data from "../data/1an/1an-data.ts";
 import ContainerTab from "@/components/containers/container-tab.vue";
 import CheckboxGroup from "@/components/controls/checkbox-group.vue";
@@ -10,12 +10,17 @@ import InputNumber from "@/components/controls/input-number.vue";
 import CheckboxSwitch from "@/components/controls/checkbox-switch.vue";
 import CheckboxSlide from "@/components/controls/checkbox-slide.vue";
 import { parseCharaIcon } from "@/utils/icon.ts";
+import ButtonNormal from "@/components/controls/button-normal.vue";
+import InputTextarea from "@/components/controls/input-textarea.vue";
 
 // vars
 const signDays = ref(0);
 const gachaFes = ref(0);
 const gachaGift = ref(false);
 const gachaCostume = ref(false);
+const rankP = ref(0);
+const mySekai = ref(0);
+const stamp: Reactive<(number | undefined)[]> = reactive([]);
 const pExchange = reactive(
     (() => {
         const exchange: { [key: string]: number } = {};
@@ -43,9 +48,114 @@ const ptExchange = reactive(
         return exchange as { [key in keyof typeof data.ptExchange]: number };
     })()
 );
-const rankP = ref(0);
-const mySekai = ref(0);
-const stamp: Reactive<(number | undefined)[]> = reactive([]);
+
+// import and export
+function clear() {
+    signDays.value = 0;
+    updateSignIn();
+    gachaFes.value = 0;
+    gachaGift.value = false;
+    gachaCostume.value = false;
+    rankP.value = 0;
+    mySekai.value = 0;
+    stamp.length = 0;
+    for (let key1 in data.pExchange) {
+        const key = key1 as keyof typeof data.pExchange;
+        pExchange[key] = 0;
+    }
+    for (let key1 in data.giftExchange) {
+        const key = key1 as keyof typeof data.giftExchange;
+        giftExchange[key] = 0;
+    }
+    for (let key1 in data.ptExchange) {
+        const key = key1 as keyof typeof data.ptExchange;
+        ptExchange[key] = 0;
+    }
+}
+function exportTo(): string {
+    const data = {
+        signDays: signDays.value,
+        gachaFes: gachaFes.value,
+        gachaGift: gachaGift.value,
+        gachaCostume: gachaCostume.value,
+        rankP: rankP.value,
+        mySekai: mySekai.value,
+        stamp: [...stamp],
+        pExchange: { ...pExchange } as Record<string, number | undefined>,
+        giftExchange: { ...giftExchange } as Record<string, number | undefined>,
+        ptExchange: { ...ptExchange } as Record<string, number | undefined>
+    };
+
+    for (let key in data.pExchange) {
+        if (data.pExchange[key] === 0) {
+            data.pExchange[key] = undefined;
+        }
+    }
+    for (let key in data.giftExchange) {
+        if (data.giftExchange[key] === 0) {
+            data.giftExchange[key] = undefined;
+        }
+    }
+    for (let key in data.ptExchange) {
+        if (data.ptExchange[key] === 0) {
+            data.ptExchange[key] = undefined;
+        }
+    }
+    return JSON.stringify(data);
+}
+function importFrom(dataStr: string) {
+    const data = JSON.parse(dataStr);
+    clear();
+    signDays.value = data.signDays;
+    updateSignIn();
+    gachaFes.value = data.gachaFes;
+    gachaGift.value = data.gachaGift;
+    gachaCostume.value = data.gachaCostume;
+    rankP.value = data.rankP;
+    mySekai.value = data.mySekai;
+    for (let i = 0; i < 5 && i < data.stamp.length; i++) {
+        stamp[i] = data.stamp[i] || undefined;
+    }
+    for (let key in data.pExchange) {
+        pExchange[key as keyof typeof pExchange] = data.pExchange[key];
+    }
+    for (let key in data.giftExchange) {
+        giftExchange[key as keyof typeof giftExchange] = data.giftExchange[key];
+    }
+    for (let key in data.ptExchange) {
+        ptExchange[key as keyof typeof ptExchange] = data.ptExchange[key];
+    }
+}
+onMounted(() => {
+    const savedData = localStorage.getItem("1an-collection");
+    if (savedData) {
+        try {
+            importFrom(savedData);
+            console.log(savedData);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+});
+watch(
+    [
+        signDays,
+        gachaFes,
+        gachaGift,
+        gachaCostume,
+        rankP,
+        mySekai,
+        stamp,
+        pExchange,
+        giftExchange,
+        ptExchange
+    ],
+    () => {
+        const dataStr = exportTo();
+        localStorage.setItem("1an-collection", dataStr);
+    },
+    { deep: true }
+);
 
 // counters
 // negative
@@ -268,7 +378,8 @@ const tabs = [
     { key: "exchangeP", label: '<i class="icon-material170" ></i>兑换所' },
     { key: "exchangeGift", label: '<i class="icon-material171" ></i>兑换所' },
     { key: "exchangeBadge", label: '<i class="icon-eventbadge-shiho3" ></i>兑换所' },
-    { key: "materials", label: "资源统计" }
+    { key: "materials", label: "资源统计" },
+    { key: "importExport", label: "导入导出" }
 ];
 const activeTab = ref(tabs[0]!.key);
 
@@ -308,6 +419,12 @@ const handleSignInRewardChange = (payload: {
         signInRewardSelects.value.push(i);
     }
 };
+function updateSignIn() {
+    signInRewardSelects.value = [];
+    for (let i = 0; i < signDays.value; i++) {
+        signInRewardSelects.value.push(i);
+    }
+}
 const signInRewards = computed(() => {
     const count = {
         p: 0,
@@ -321,6 +438,27 @@ const signInRewards = computed(() => {
     }
     return count;
 });
+const importText = ref("");
+const importStat = ref<boolean>();
+function clearUI() {
+    importStat.value = undefined;
+    clear();
+}
+function importFromText() {
+    importStat.value = undefined;
+    try {
+        importFrom(importText.value);
+    } catch (e) {
+        importStat.value = false;
+        throw e;
+    }
+    importStat.value = true;
+}
+function exportAndCopy() {
+    importStat.value = undefined;
+    const str = exportTo();
+    navigator.clipboard.writeText(str);
+}
 </script>
 
 <template>
@@ -695,6 +833,28 @@ const signInRewards = computed(() => {
                         </div>
                     </div>
                 </div>
+            </template>
+
+            <template #importExport>
+                <h2 class="hidden">导入导出</h2>
+                <div class="flex flex-nowrap items-center my-4">
+                    清空选择：
+                    <div class="w-16"><ButtonNormal @click="clearUI">清空</ButtonNormal></div>
+                </div>
+                <div class="flex flex-nowrap items-center my-4">
+                    导出到剪切板：
+                    <div class="w-16"><ButtonNormal @click="exportAndCopy">导出</ButtonNormal></div>
+                </div>
+
+                <div class="flex flex-nowrap items-center my-4">
+                    导入：
+                    <div class="w-16 mr-2">
+                        <ButtonNormal @click="importFromText">导入</ButtonNormal>
+                    </div>
+                    <span v-if="importStat == true" class="text-miku"> 导入成功！ </span>
+                    <span v-else-if="importStat == false" class="text-red-400"> 导入失败！ </span>
+                </div>
+                <InputTextarea v-model="importText" />
             </template>
         </ContainerTab>
     </ContainerPageContent>

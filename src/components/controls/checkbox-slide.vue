@@ -25,7 +25,6 @@ const getValidChildren = () => {
 const total = computed(() => getValidChildren().length);
 
 const viewIndex = ref(props.modelValue || 0);
-console.log(props.modelValue, viewIndex.value);
 const direction = ref(1);
 
 watch(
