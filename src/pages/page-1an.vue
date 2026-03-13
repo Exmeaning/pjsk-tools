@@ -1111,6 +1111,8 @@ function exportAndCopy() {
             </template>
         </ContainerTab>
     </ContainerPageContent>
+    <!-- 给底部留出滑动空间 -->
+    <div class="h-30" />
     <div
         class="fixed right-6 bottom-6 size-20 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md flex items-center justify-center text-slate-800 dark:text-slate-100 text-2xl z-50 rounded-full shadow-lg border border-white/50 dark:border-slate-700/50 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-miku/30 dark:hover:shadow-miku/20 active:scale-95 group"
     >
