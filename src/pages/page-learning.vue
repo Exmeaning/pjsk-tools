@@ -102,7 +102,7 @@ const userExchange = reactive(
 
         <PartH2>签到</PartH2>
         <div class="mb-5">
-            签到组件点击第 N 天即选择签到 N 天，再次点击取消选择（即一天都不签）。
+            签到组件点击第 N 天即选择共签到 N 天。
         </div>
         <CheckboxGroup
             v-model="signInRewardSelects"
