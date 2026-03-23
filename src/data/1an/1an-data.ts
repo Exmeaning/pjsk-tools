@@ -237,7 +237,7 @@ const pExchange = {
     drinkL: {
         count: 1,
         expense: 10,
-        limit: 5,
+        limit: 50,
         icon: "icon-boost-item2"
     },
     liveCoin: {
