@@ -12,6 +12,7 @@ import CheckboxSlide from "@/components/controls/checkbox-slide.vue";
 import { parseCharaIcon } from "@/utils/icon.ts";
 import ButtonNormal from "@/components/controls/button-normal.vue";
 import InputTextarea from "@/components/controls/input-textarea.vue";
+import { footerOverlapHeight } from "@/utils/footer-tracker.ts";
 
 // vars
 const signDays = ref(0);
@@ -535,21 +536,23 @@ function exportAndCopy() {
                         <div
                             class="flex items-center text-center sm:text-left text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium"
                         >
-                            免费每抽 0.5 点，付费没抽 1 点，每满 50 点 → 100<i
+                            免费每抽 0.5 点，付费每抽 1 点，每满 50 点 → 100<i
                                 class="icon-material170 ml-1"
                             />，无上限
                         </div>
-                        <div
-                            class="flex flex-row items-center w-max"
-                        >
+                        <div class="flex flex-row items-center w-max">
                             <div class="flex flex-col">
-                                <div class="flex flex-row items-center w-max text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 px-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner">
+                                <div
+                                    class="flex flex-row items-center w-max text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 px-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner"
+                                >
                                     <span class="mr-3">免费</span>
                                     <div class="h-8 min-w-24">
                                         <InputNumber v-model="gachaFesFree" :min="0" />
                                     </div>
                                 </div>
-                                <div class="flex flex-row items-center w-max text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 px-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner">
+                                <div
+                                    class="flex flex-row items-center w-max text-slate-700 dark:text-slate-200 font-bold bg-white/60 dark:bg-slate-900/60 px-4 py-2 rounded-full border border-white/50 dark:border-slate-700/50 shadow-inner"
+                                >
                                     <span class="mr-3">付费</span>
                                     <div class="h-8 min-w-24">
                                         <InputNumber v-model="gachaFesPaid" :min="0" />
@@ -559,7 +562,11 @@ function exportAndCopy() {
                             <span class="text-slate-400 dark:text-slate-500 mr-2">→</span>
                             <span class="text-miku text-lg mr-1">{{ gachaGotP }}</span>
                             <i class="icon-material170 drop-shadow-sm" />
-                            <span v-if="gachaFesProgress" class="text-slate-400 dark:text-slate-500 mx-2">余 {{ gachaFesProgress }} 点</span>
+                            <span
+                                v-if="gachaFesProgress"
+                                class="text-slate-400 dark:text-slate-500 mx-2"
+                                >余 {{ gachaFesProgress }} 点</span
+                            >
                         </div>
                     </div>
                 </div>
@@ -1146,7 +1153,8 @@ function exportAndCopy() {
     <!-- 给底部留出滑动空间 -->
     <div class="h-30" />
     <div
-        class="fixed right-6 bottom-6 size-20 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md flex items-center justify-center text-slate-800 dark:text-slate-100 text-2xl z-50 rounded-full shadow-lg border border-white/50 dark:border-slate-700/50 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-miku/30 dark:hover:shadow-miku/20 active:scale-95 group"
+        class="fixed right-6 size-20 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md flex items-center justify-center text-slate-800 dark:text-slate-100 text-2xl z-50 rounded-full shadow-lg border border-white/50 dark:border-slate-700/50 cursor-pointer transition duration-300 hover:scale-105 hover:shadow-xl hover:shadow-miku/30 dark:hover:shadow-miku/20 active:scale-95 group"
+        :style="`bottom: calc(var(--spacing) * 6 + ${footerOverlapHeight}px)`"
     >
         <div
             class="absolute inset-0 rounded-full bg-linear-to-tr from-miku/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
