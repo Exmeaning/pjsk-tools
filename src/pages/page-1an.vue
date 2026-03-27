@@ -89,7 +89,7 @@ function clear() {
     }
 }
 function exportTo(): string {
-    const data = {
+    const exportData = {
         signDays: signDays.value,
         gachaFesFree: gachaFesFree.value,
         gachaFesPaid: gachaFesPaid.value,
@@ -103,22 +103,31 @@ function exportTo(): string {
         ptExchange: { ...ptExchange } as Record<string, number | undefined>
     };
 
-    for (let key in data.pExchange) {
-        if (data.pExchange[key] === 0) {
-            data.pExchange[key] = undefined;
+    for (let key in exportData.pExchange) {
+        if (!data.pExchange.hasOwnProperty(key)) {
+            exportData.pExchange[key] = undefined;
+        }
+        if (exportData.pExchange[key] === 0) {
+            exportData.pExchange[key] = undefined;
         }
     }
-    for (let key in data.giftExchange) {
-        if (data.giftExchange[key] === 0) {
-            data.giftExchange[key] = undefined;
+    for (let key in exportData.giftExchange) {
+        if (!data.giftExchange.hasOwnProperty(key)) {
+            exportData.pExchange[key] = undefined;
+        }
+        if (exportData.giftExchange[key] === 0) {
+            exportData.giftExchange[key] = undefined;
         }
     }
-    for (let key in data.ptExchange) {
-        if (data.ptExchange[key] === 0) {
-            data.ptExchange[key] = undefined;
+    for (let key in exportData.ptExchange) {
+        if (!data.ptExchange.hasOwnProperty(key)) {
+            exportData.ptExchange[key] = undefined;
+        }
+        if (exportData.ptExchange[key] === 0) {
+            exportData.ptExchange[key] = undefined;
         }
     }
-    return JSON.stringify(data);
+    return JSON.stringify(exportData);
 }
 function number(value: any, defaultValue: number = 0): number {
     if (typeof value === "number" && !isNaN(value)) {
